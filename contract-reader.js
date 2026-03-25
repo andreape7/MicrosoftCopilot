@@ -1,11 +1,13 @@
 // Contract Reader Agent
 // Reads PDF contracts and extracts key information using PDF.js
 
+import * as pdfjsLib from './vendor/pdfjs/pdf.min.mjs';
+
+// ── PDF.js worker setup ──────────────────────────────────────────────────
+pdfjsLib.GlobalWorkerOptions.workerSrc = './vendor/pdfjs/pdf.worker.min.mjs';
+
 (function () {
     'use strict';
-
-    // ── PDF.js worker setup ──────────────────────────────────────────────────
-    pdfjsLib.GlobalWorkerOptions.workerSrc = 'vendor/pdfjs/pdf.worker.min.js';
 
     // ── DOM references ───────────────────────────────────────────────────────
     const pdfInput       = document.getElementById('pdf-input');

@@ -89,8 +89,7 @@
         <p>&copy; 2025 Andrea Hidalgo. Todos los derechos reservados.</p>
     </footer>
 
-    <!-- PDF.js library (vendored locally) -->
-    <script src="vendor/pdfjs/pdf.min.js"></script>
-    <script src="contract-reader.js"></script>
+    <!-- Contract Reader Agent (ES module – imports PDF.js from vendor/) -->
+    <script type="module" src="contract-reader.js"></script>
 </body>
 </html>
