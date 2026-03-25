@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agente Lector de Contratos PDF</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="contract-reader.css">
+</head>
+<body>
+    <header>
+        <h1>Agente Lector de Contratos PDF</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">← Volver al Portafolio</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section id="upload-section">
+            <h2>Cargar Contrato en PDF</h2>
+            <p>Sube un contrato en formato PDF y el agente extraerá automáticamente la información más relevante.</p>
+            <div class="upload-area" id="upload-area">
+                <div class="upload-icon">📄</div>
+                <p>Arrastra y suelta tu PDF aquí o</p>
+                <label for="pdf-input" class="btn">Seleccionar archivo PDF</label>
+                <input type="file" id="pdf-input" accept=".pdf" hidden>
+                <p id="file-name" class="file-name"></p>
+            </div>
+            <button id="analyze-btn" class="btn btn-primary" disabled>Analizar Contrato</button>
+        </section>
+
+        <section id="progress-section" class="hidden">
+            <div class="progress-container">
+                <div class="spinner"></div>
+                <p id="progress-message">Procesando el contrato...</p>
+            </div>
+        </section>
+
+        <section id="results-section" class="hidden">
+            <h2>Información Extraída del Contrato</h2>
+
+            <div class="results-grid">
+                <div class="result-card" id="card-parties">
+                    <h3>👥 Partes Involucradas</h3>
+                    <ul id="parties-list"><li class="empty">No identificadas</li></ul>
+                </div>
+
+                <div class="result-card" id="card-dates">
+                    <h3>📅 Fechas Clave</h3>
+                    <ul id="dates-list"><li class="empty">No identificadas</li></ul>
+                </div>
+
+                <div class="result-card" id="card-amounts">
+                    <h3>💰 Montos y Valores</h3>
+                    <ul id="amounts-list"><li class="empty">No identificados</li></ul>
+                </div>
+
+                <div class="result-card" id="card-obligations">
+                    <h3>📋 Obligaciones Principales</h3>
+                    <ul id="obligations-list"><li class="empty">No identificadas</li></ul>
+                </div>
+
+                <div class="result-card" id="card-duration">
+                    <h3>⏱️ Duración y Vigencia</h3>
+                    <ul id="duration-list"><li class="empty">No identificada</li></ul>
+                </div>
+
+                <div class="result-card" id="card-type">
+                    <h3>📝 Tipo de Contrato</h3>
+                    <p id="contract-type" class="highlight-text">No identificado</p>
+                </div>
+            </div>
+
+            <div class="full-text-section">
+                <h3>📄 Texto Completo Extraído</h3>
+                <button id="toggle-text-btn" class="btn">Mostrar / Ocultar Texto Completo</button>
+                <div id="full-text-container" class="hidden">
+                    <pre id="full-text"></pre>
+                </div>
+            </div>
+
+            <button id="reset-btn" class="btn btn-secondary">Analizar otro contrato</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Andrea Hidalgo. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Contract Reader Agent (ES module – imports PDF.js from vendor/) -->
+    <script type="module" src="contract-reader.js"></script>
+</body>
+</html>
